@@ -1,25 +1,25 @@
-import userData from "../data/userData.json";
-import Profile from "./Profile/Profile.jsx";
-import friends from "../data/friends.json";
-import FriendList from "./FriendList/FriendList.jsx";
-import transactions from "../data/transactions.json";
-import TransactionHistory from "./TransactionHistory/TransactionHistory.jsx";
+import { useState } from "react";
+import FeedbackCounter from "./FeedbackCounter/FeedbackCounter";
+import CafeName from "./CafeName/CafeName";
+import FeedbackTotal from "./FeedbackTotal/FeedbackTotal";
+
+const App = () => {
+  const [feedback, setFeedback] = useState({ good: 3, neutral: 2, bad: 1 });
 
 
- const App = () => {
- return (
-  <>
-  <Profile 
-    name={userData.username}
-    tag={userData.tag}
-    location={userData.location}
-    image={userData.avatar}
-    stats={userData.stats}
-     />
-     <FriendList friends={friends} />
-     <TransactionHistory items={transactions} />
-  </>
- );
+
+  const handleLogFeedback = (feedbackName) => {
+    console.log("feedbackName: ", feedbackName);
+    setFeedback(...feedback, [feedbackName]: feedback[feedbackName] + 1);
+  };
+
+  return (
+    <div>
+      <CafeName />
+      <FeedbackCounter handleLogFeedback={handleLogFeedback} />
+      <FeedbackTotal feedback={feedback} />
+    </div>
+  );
 };
 
 export default App;
