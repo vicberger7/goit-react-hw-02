@@ -6,11 +6,9 @@ import FeedbackTotal from "./FeedbackTotal/FeedbackTotal";
 const App = () => {
   const [feedback, setFeedback] = useState({ good: 3, neutral: 2, bad: 1 });
 
-
-
   const handleLogFeedback = (feedbackName) => {
     console.log("feedbackName: ", feedbackName);
-    setFeedback(...feedback, [feedbackName]: feedback[feedbackName] + 1);
+    setFeedback({ ...feedback, [feedbackName]: feedback[feedbackName] + 1 });
   };
 
   return (
