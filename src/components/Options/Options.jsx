@@ -1,9 +1,10 @@
+import css from "./Options.module.css";
 const Options = ({ handleResetFeedback, updateFeedback }) => {
   return (
-    <div className="feedback-buttons">
-      <button onClick={() => updateFeedback("Good")}>Good</button>
-      <button onClick={() => updateFeedback("Neutral")}>Neutral</button>
-      <button onClick={() => updateFeedback("Bad")}>Bad</button>
+    <div className={css.feedbackbtns}>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
       <button onClick={handleResetFeedback}>Reset</button>
     </div>
   );

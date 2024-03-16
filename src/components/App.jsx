@@ -1,33 +1,9 @@
 import { useEffect, useState } from "react";
 import Description from "./Description/Description";
-// import Options from "./Options/Options";
-// import Feedback from "./Feedback/Feedback";
+import Options from "./Options/Options";
+import Feedback from "./Feedback/Feedback";
 import Notification from "./Notification/Notification";
-
-const Options = ({ handleResetFeedback, updateFeedback }) => {
-  return (
-    <div className="feedback-buttons">
-      <button onClick={() => updateFeedback("good")}>Good</button>
-      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
-      <button onClick={() => updateFeedback("bad")}>Bad</button>
-      <button onClick={handleResetFeedback}>Reset</button>
-    </div>
-  );
-};
-
-const Feedback = ({ feedback, totalFeedback, positiveFeedbackPercentage }) => {
-  return (
-    <div className="feedback-stats">
-      <ul>
-        <li>Good: {feedback.good}</li>
-        <li>Neutral: {feedback.neutral}</li>
-        <li>Bad: {feedback.bad}</li>
-        <li>Total: {totalFeedback}</li>
-        <li>Positive: {positiveFeedbackPercentage}%</li>
-      </ul>
-    </div>
-  );
-};
+import css from "./App.module.css";
 
 const initialFeedback = {
   good: 0,
@@ -62,7 +38,7 @@ function App() {
   }, [feedback]);
 
   return (
-    <div className={CSS.app}>
+    <div className={css.app}>
       <Description />
 
       <Options
