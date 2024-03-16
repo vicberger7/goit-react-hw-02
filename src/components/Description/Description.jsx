@@ -1,6 +1,6 @@
-const Header = () => {
+const Description = () => {
   return (
-    <div>
+    <div className="feedback-description">
       <h1>Sip Happens Café</h1>
       <p>
         Please leave your feedback about our service by selecting one of the
@@ -10,4 +10,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Description;
